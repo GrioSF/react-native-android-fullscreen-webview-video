@@ -313,9 +313,9 @@ public class CustomWebViewManager extends SimpleViewManager<WebView> {
             }
         }
 
-        public void onMessage(String message) {
+        public void onMessage(final String message) {
             if (mReactWebViewClient != null) {
-                WebView webView = this;
+                final WebView webView = this;
                 webView.post(new Runnable() {
                     @Override
                     public void run() {
