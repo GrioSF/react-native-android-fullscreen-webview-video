@@ -251,7 +251,7 @@ class WebView extends React.Component {
         );
     } else if (this.state.viewState !== WebViewState.IDLE) {
       console.error(
-        'RCTWebView invalid state encountered: ' + this.state.loading
+        'RNCWebView invalid state encountered: ' + this.state.loading
       );
     }
 
@@ -281,7 +281,7 @@ class WebView extends React.Component {
 
     const nativeConfig = this.props.nativeConfig || {};
 
-    let NativeWebView = nativeConfig.component || RCTWebView;
+    let NativeWebView = nativeConfig.component || RNCWebView;
 
     const webView = (
       <NativeWebView
@@ -330,7 +330,7 @@ class WebView extends React.Component {
   goForward = () => {
     UIManager.dispatchViewManagerCommand(
       this.getWebViewHandle(),
-      UIManager.RCTWebView.Commands.goForward,
+      UIManager.RNCWebView.Commands.goForward,
       null
     );
   };
@@ -338,7 +338,7 @@ class WebView extends React.Component {
   goBack = () => {
     UIManager.dispatchViewManagerCommand(
       this.getWebViewHandle(),
-      UIManager.RCTWebView.Commands.goBack,
+      UIManager.RNCWebView.Commands.goBack,
       null
     );
   };
@@ -349,7 +349,7 @@ class WebView extends React.Component {
     });
     UIManager.dispatchViewManagerCommand(
       this.getWebViewHandle(),
-      UIManager.RCTWebView.Commands.reload,
+      UIManager.RNCWebView.Commands.reload,
       null
     );
   };
@@ -357,7 +357,7 @@ class WebView extends React.Component {
   stopLoading = () => {
     UIManager.dispatchViewManagerCommand(
       this.getWebViewHandle(),
-      UIManager.RCTWebView.Commands.stopLoading,
+      UIManager.RNCWebView.Commands.stopLoading,
       null
     );
   };
@@ -365,7 +365,7 @@ class WebView extends React.Component {
   postMessage = data => {
     UIManager.dispatchViewManagerCommand(
       this.getWebViewHandle(),
-      UIManager.RCTWebView.Commands.postMessage,
+      UIManager.RNCWebView.Commands.postMessage,
       [String(data)]
     );
   };
@@ -379,7 +379,7 @@ class WebView extends React.Component {
   injectJavaScript = data => {
     UIManager.dispatchViewManagerCommand(
       this.getWebViewHandle(),
-      UIManager.RCTWebView.Commands.injectJavaScript,
+      UIManager.RNCWebView.Commands.injectJavaScript,
       [data]
     );
   };
@@ -433,7 +433,7 @@ class WebView extends React.Component {
   };
 }
 
-const RCTWebView = requireNativeComponent(
+const RNCWebView = requireNativeComponent(
   'RNCustomWebView',
   WebView,
   WebView.extraNativeComponentConfig
